@@ -1,0 +1,20 @@
+nav ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+ul li a {
+  display: block;
+  text-decoration: none;
+  padding: 13px 30px;
+  color: rgb(0, 0, 0);
+  font-size: 16px;
+  position: relative;
+}
+
+a:hover, ul li a.active {
+  color: #0c7db1;
+
+  background: white;
+  border-right: 2px solid rgb(5, 68, 104);
+}

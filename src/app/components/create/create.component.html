@@ -1,0 +1,69 @@
+<div class="section">
+  <!-- <form #cartoonForm="ngForm" (ngSubmit)="handleSubmitForm(cartoonForm.value)">
+    <input type="text" name="title" placeholder="Email" ngModel />
+    <br />
+    <input type="text" name="year" placeholder="Year" ngModel />
+    <br />
+    <input type="submit" value="submit" />
+  </form> -->
+  <h1>Add New Cartoon</h1>
+
+  <div class="example-container">
+    <form [formGroup]="cartoonForm" (ngSubmit)="handleSubmitForm()">
+      <mat-form-field appearance="fill">
+        <mat-label>Enter title</mat-label>
+        <input matInput type="text" [formControl]="title" required />
+        <mat-error *ngIf="title.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter year</mat-label>
+        <input matInput type="number" [formControl]="year" required />
+        <mat-error *ngIf="year.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter rating</mat-label>
+        <input matInput [formControl]="rating" required />
+        <mat-error *ngIf="rating.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Runtime ( minute )</mat-label>
+        <input
+          matInput
+          type="number"
+          [formControl]="runtime_in_minutes"
+          required
+        />
+        <mat-error *ngIf="runtime_in_minutes.invalid">{{
+          getErrorMessage()
+        }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Episode Amount</mat-label>
+        <input matInput type="number" [formControl]="episodes" required />
+        <mat-error *ngIf="episodes.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Enter Image Url</mat-label>
+        <input matInput [formControl]="image" required />
+        <mat-error *ngIf="image.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Creator ( Separate by comma )</mat-label>
+        <textarea matInput [formControl]="creator" required ></textarea>
+        <mat-error *ngIf="creator.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <mat-form-field appearance="fill">
+        <mat-label>Genre ( Separate by comma )</mat-label>
+        <textarea matInput [formControl]="genre" required ></textarea>
+        <mat-error *ngIf="genre.invalid">{{ getErrorMessage() }}</mat-error>
+      </mat-form-field>
+      <button
+        mat-stroked-button
+        type="submit"
+        *ngIf="!title.invalid && !year.invalid && !rating.invalid && !runtime_in_minutes.invalid && !episodes.invalid && !image.invalid"
+      >
+        Submit Cartoon
+      </button>
+    </form>
+  </div>
+</div>

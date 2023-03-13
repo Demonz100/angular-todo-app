@@ -1,0 +1,14 @@
+<div class="card-container">
+  <mat-card class="example-card">
+    <mat-card-header>
+      <mat-card-title class="card-title">{{ cartoon.title }}</mat-card-title>
+      <mat-card-subtitle>
+        <span *ngFor="let genre of cartoon.genre">{{ genre }} &nbsp;</span>
+      </mat-card-subtitle>
+    </mat-card-header>
+    <img
+      mat-card-image
+      [src]="cartoon.image"
+    />
+  </mat-card>
+</div>

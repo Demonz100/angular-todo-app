@@ -1,0 +1,16 @@
+.example-container mat-form-field {
+  width: 100%;
+  margin-right: 12px;
+}
+
+.example-container form {
+  margin-bottom: 20px;
+}
+
+.example-container form > * {
+  margin-top: 12px;
+}
+
+.section{
+  padding: 1rem;
+}
