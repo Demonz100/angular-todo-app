@@ -7,11 +7,13 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppComponent } from './app.component';
 import { NavbarComponent } from './components/navbar/navbar.component';
-import { ListingComponent } from './components/listing/listing.component';
+import { ListingComponent } from './views/listing/listing.component';
 import { SideNavbarComponent } from './components/side-navbar/side-navbar.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { CreateComponent } from './components/create/create.component';
+import { CreateComponent } from './views/create/create.component';
 import { CardComponent } from './components/card/card.component';
+import { EditDialogComponent } from './components/edit-dialog/edit-dialog.component';
+import { EditComponent } from './views/edit/edit.component';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatIconModule } from '@angular/material/icon';
@@ -21,8 +23,10 @@ import { MatCardModule } from '@angular/material/card';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import {MatSnackBarModule} from '@angular/material/snack-bar';
-import { EditComponent } from './components/edit/edit.component'
-
+import { MatTableModule } from '@angular/material/table';
+import { MatPaginatorModule } from '@angular/material/paginator';
+import { MatDialogModule } from '@angular/material/dialog';
+import { CheckMinPipe } from './pipes/check-min.pipe'
 @NgModule({
   declarations: [
     AppComponent,
@@ -33,6 +37,8 @@ import { EditComponent } from './components/edit/edit.component'
     CreateComponent,
     CardComponent,
     EditComponent,
+    EditDialogComponent,
+    CheckMinPipe
   ],
   imports: [
     BrowserModule,
@@ -48,9 +54,13 @@ import { EditComponent } from './components/edit/edit.component'
     MatCardModule,
     MatFormFieldModule,
     MatInputModule,
-    MatSnackBarModule
+    MatSnackBarModule,
+    MatTableModule,
+    MatPaginatorModule,
+    MatDialogModule
   ],
   providers: [],
   bootstrap: [AppComponent],
 })
+
 export class AppModule {}

@@ -7,7 +7,8 @@ import {
   Validators,
 } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Cartoon } from 'src/models/cartoon.model';
+import { CartoonService } from 'src/app/services/cartoon.service';
+import { Cartoon } from 'src/app/models/cartoon.model';
 
 @Component({
   selector: 'app-create',
@@ -16,7 +17,6 @@ import { Cartoon } from 'src/models/cartoon.model';
 })
 
 export class CreateComponent {
-  cartoonUrl = 'https://api.sampleapis.com/cartoons/cartoons2D';
   cartoonForm: FormGroup;
 
   title = new FormControl('', [Validators.required]);
@@ -30,7 +30,7 @@ export class CreateComponent {
 
   constructor(
     private _formBuilder: FormBuilder,
-    private http: HttpClient,
+    private cartoonService: CartoonService,
     private _snackBar: MatSnackBar
   ) {
     this.cartoonForm = this._formBuilder.group({
@@ -50,13 +50,13 @@ export class CreateComponent {
   }
 
   addCartoon(data: Cartoon) {
-    this.http.post(this.cartoonUrl, data).subscribe({
+    this.cartoonService.addCartoon$(data).subscribe({
       next: () => {
         this.clearForm();
         this.openSnackBar('Added successfully', 'Close');
       },
       error: (error) => {
-        console.log(error);
+        console.log(error.message);
         this.openSnackBar('Added failed', 'Close');
       },
     });

@@ -1,0 +1,50 @@
+<h1 mat-dialog-title>Edit this cartoon</h1>
+<div mat-dialog-content>
+  <!-- <mat-form-field appearance="fill">
+    <mat-label>Favorite Animal</mat-label>
+    <input matInput [(ngModel)]="data.animal">
+  </mat-form-field> -->
+  <div class="example-container">
+    <mat-form-field appearance="fill">
+      <mat-label>Enter title</mat-label>
+      <input matInput type="text" [(ngModel)]="data.title" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter year</mat-label>
+      <input matInput type="number" [(ngModel)]="data.year" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter rating</mat-label>
+      <input matInput [(ngModel)]="data.rating" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Runtime ( minute )</mat-label>
+      <input
+        matInput
+        type="number"
+        [(ngModel)]="data.runtime_in_minutes"
+        required
+      />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Episode Amount</mat-label>
+      <input matInput type="number" [(ngModel)]="data.episodes" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Enter Image Url</mat-label>
+      <input matInput [(ngModel)]="data.image" required />
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Creator ( Separate by comma )</mat-label>
+      <textarea matInput [(ngModel)]="data.creator" required></textarea>
+    </mat-form-field>
+    <mat-form-field appearance="fill">
+      <mat-label>Genre ( Separate by comma )</mat-label>
+      <textarea matInput [(ngModel)]="data.genre" required></textarea>
+    </mat-form-field>
+  </div>
+</div>
+<div mat-dialog-actions>
+  <button mat-button (click)="onNoClick()">Close</button>
+  <button mat-button [mat-dialog-close]="data" cdkFocusInitial>Save</button>
+</div>

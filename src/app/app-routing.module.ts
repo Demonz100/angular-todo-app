@@ -1,8 +1,9 @@
+import { EditComponent } from './views/edit/edit.component';
 import { NotFoundComponent } from './components/not-found/not-found.component';
-import { ListingComponent } from './components/listing/listing.component';
+import { ListingComponent } from './views/listing/listing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
-import { CreateComponent } from './components/create/create.component';
+import { CreateComponent } from './views/create/create.component';
 
 const routes: Routes = [
   {
@@ -13,6 +14,9 @@ const routes: Routes = [
   },
   {
     path:'create', component: CreateComponent
+  },
+  {
+    path:'edit', component: EditComponent
   },
   {
     path: '**', component: NotFoundComponent 

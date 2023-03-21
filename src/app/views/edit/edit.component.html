@@ -1,0 +1,49 @@
+<div class="section">
+  <h1>Modify Cartoon</h1>
+
+  <mat-table [dataSource]="dataSource">
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+      <mat-cell *matCellDef="let cartoon"> {{ cartoon.title }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="year">
+      <mat-header-cell *matHeaderCellDef> Year </mat-header-cell>
+      <mat-cell *matCellDef="let cartoon"> {{ cartoon.year }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="creator">
+      <mat-header-cell *matHeaderCellDef> Creator </mat-header-cell>
+      <mat-cell *matCellDef="let cartoon"> {{ cartoon.creator }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="rating">
+      <mat-header-cell *matHeaderCellDef> Rating </mat-header-cell>
+      <mat-cell *matCellDef="let cartoon"> {{ cartoon.rating }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="episode">
+      <mat-header-cell *matHeaderCellDef> Episodes </mat-header-cell>
+      <mat-cell *matCellDef="let cartoon"> {{ cartoon.episodes }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="runtime_in_minutes">
+      <mat-header-cell *matHeaderCellDef> Runtime  </mat-header-cell>
+      <mat-cell *matCellDef="let cartoon">
+        {{ cartoon.runtime_in_minutes | checkMin }}
+      </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="genre">
+      <mat-header-cell *matHeaderCellDef> Genre </mat-header-cell>
+      <mat-cell *matCellDef="let cartoon"> {{ cartoon.genre }} </mat-cell>
+    </ng-container>
+    <ng-container matColumnDef="operation">
+      <mat-header-cell *matHeaderCellDef> Operation </mat-header-cell>
+      <td mat-cell *matCellDef="let element">
+        <button mat-icon-button (click)="edit(element)">
+          <mat-icon mat-icon-button color="primary">edit</mat-icon>
+        </button>
+        <button mat-icon-button (click)="delete(element['id'])">
+          <mat-icon mat-icon-button color="warn">delete</mat-icon>
+        </button>
+      </td>
+    </ng-container>
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns"></mat-row>
+  </mat-table>
+</div>

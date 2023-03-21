@@ -1,7 +1,6 @@
-import { HttpClient } from '@angular/common/http';
 import { Component, Injectable, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { Cartoon } from 'src/models/cartoon.model';
+import { CartoonService } from 'src/app/services/cartoon.service';
+import { Cartoon } from 'src/app/models/cartoon.model';
 
 @Injectable()
 
@@ -13,21 +12,16 @@ import { Cartoon } from 'src/models/cartoon.model';
 
 export class ListingComponent implements OnInit{
   cartoons: Cartoon[] = [];
-  cartoonUrl = 'https://api.sampleapis.com/cartoons/cartoons2D';
 
-  constructor(private http: HttpClient){}
-
-  getCartoon$() : Observable<Cartoon[]> {
-    return this.http.get<Cartoon[]>(this.cartoonUrl)
-  }
+  constructor(private cartoonService: CartoonService){}
 
   ngOnInit() {
-    this.getCartoon$().subscribe({
+    this.cartoonService.getCartoon$().subscribe({
       next: (cartoon) => {
         this.cartoons = cartoon
       },
       error: (error) => {
-        console.log(error)
+        console.log(error.message)
       }
     })
   }
