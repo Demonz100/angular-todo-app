@@ -1,6 +1,7 @@
 import { Component, Injectable, OnInit } from '@angular/core';
-import { CartoonService } from 'src/app/services/cartoon.service';
-import { Cartoon } from 'src/app/models/cartoon.model';
+import { selectFeatureContent } from 'src/app/state/cartoons/cartoon.selectors';
+import { stateActions } from 'src/app/state/cartoons/cartoon.actions';
+import { Store } from '@ngrx/store';
 
 @Injectable()
 
@@ -11,18 +12,11 @@ import { Cartoon } from 'src/app/models/cartoon.model';
 })
 
 export class ListingComponent implements OnInit{
-  cartoons: Cartoon[] = [];
+  cartoons$ = this.store.select(selectFeatureContent)
 
-  constructor(private cartoonService: CartoonService){}
+  constructor(private store: Store){}
 
-  ngOnInit() {
-    this.cartoonService.getCartoon$().subscribe({
-      next: (cartoon) => {
-        this.cartoons = cartoon
-      },
-      error: (error) => {
-        console.log(error.message)
-      }
-    })
+  ngOnInit(){
+    this.store.dispatch(stateActions.loadCartoon())
   }
 }

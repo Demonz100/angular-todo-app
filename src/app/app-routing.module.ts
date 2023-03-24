@@ -4,6 +4,7 @@ import { ListingComponent } from './views/listing/listing.component';
 import { NgModule } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { CreateComponent } from './views/create/create.component';
+import { StateTestComponent } from './views/state-test/state-test.component';
 
 const routes: Routes = [
   {
@@ -17,6 +18,9 @@ const routes: Routes = [
   },
   {
     path:'edit', component: EditComponent
+  },
+  {
+    path:'state-test', component: StateTestComponent
   },
   {
     path: '**', component: NotFoundComponent 

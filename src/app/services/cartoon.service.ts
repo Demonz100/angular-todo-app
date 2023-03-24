@@ -1,11 +1,12 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { catchError, EMPTY, Observable } from 'rxjs';
+import { Observable } from 'rxjs';
 import { Cartoon } from 'src/app/models/cartoon.model';
 
 @Injectable({
   providedIn: 'root'
 })
+
 export class CartoonService {
 
   constructor(private http: HttpClient) {}
